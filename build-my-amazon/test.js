@@ -1,12 +1,15 @@
-function Player(name, marker) {
-    this.name = name;
-    this.marker = marker;
-    this.sayName = function() {
-        console.log(this.name)
+//Book exercise 
+function Book(title, author, num_of_pages, isRead) {
+    this.title = title;
+    this.author = author;
+    this.num_of_pages = num_of_pages;
+    this.isRead = isRead;
+    this.info = function() {
+        const readStatus = this.isRead ? "read" : "not read yet";
+        return `${this.title} by ${this.author}, ${this.num_of_pages} pages, ${readStatus}`
     };
 }
 
-const player1 = new Player('steve', 'X');
-const player2 = new Player('Shiro', 'O');
-player1.sayName();
-player2.sayName();
+const theHobbit = new Book('Hobbit', 'J.R.R Tolkien', 296, true);
+
+console.log(theHobbit.info());
