@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissor</title>
+    <title>Rock Paper scissors</title>
 </head>
 <body>
-  
+
     <button onclick="
       playGame('rock');
     ">Rock</button>
@@ -17,7 +17,7 @@
 
     <button onclick="
       playGame('scissors');
-    ">Scissors</button>
+    ">scissors</button>
 
 
     <script>
@@ -52,7 +52,7 @@
         if (playerMove === 'paper') {
          if (computerMove === 'paper') {
             result = 'Tie.';
-          } else if (computerMove === 'scissor') {
+          } else if (computerMove === 'scissors') {
             result = 'You lose.';
           } else if (computerMove === 'rock') {
             result = 'You win.';
@@ -73,7 +73,7 @@
             } else if( randomNumber >= 1 / 3 && randomNumber < 2 / 3){
                 computerMove = 'paper';
             } else if( randomNumber >= 2 / 3 && randomNumber < 1) {
-                computerMove = 'scissor';
+                computerMove = 'scissors';
             }
             return computerMove;
         }
