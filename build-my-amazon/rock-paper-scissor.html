@@ -4,20 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper scissors</title>
+    <style>
+      body{
+        background-color: rgb(25, 25, 25);
+        color: white;
+        font-family: Arial;
+      }
+      .title {
+        font-size: 30px;
+        font-weight: bold;
+      }
+      .move-icon {
+      height: 50px;
+      }
+      .move-button {
+        background-color: transparent;
+        border: 1px solid white;
+        width: 100px;
+        height: 100px;
+        border-radius: 60px;
+      }
+      .result {
+        font-size: 25px;
+        font-weight: bold;
+        margin-top: 50px;
+      }
+    </style>
 </head>
 <body>
-
+    <p>Rock Paper Scissors</p>
     <button onclick="
       playGame('rock');
-    ">Rock</button>
+    " class="move-button"><img src="images/rock.png" class="move-icon"></button>
 
     <button onclick="
       playGame('paper');
-    ">Paper</button>
+    " class="move-button"><img src="images/paper.png" class="move-icon"></button>
 
     <button onclick="
       playGame('scissors');
-    ">scissors</button>
+    " class="move-button"><img src="images/scissors.png" class="move-icon"></button>
 
     <button onclick="
       score.win = 0;
@@ -27,7 +53,7 @@
       updateScoreElement();
     ">Reset Score</button>
 
-    <p class="js-result"></p>
+    <p class="js-result result"></p>
 
     <p class="js-moves"></p>
 
