@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+</head>
+<body>
+    <p>To Do List practice 1</p>
+    <input placeholder="Todo name" class="js-name-todo">
+    <button onclick="addToDoList();">Add</button>
+    <p>To Do List practice 2</p>
+    <input placeholder="Todo name2" class="js-name-todo2">
+    <button onclick="rendertodoList();">Add</button>
+    <div class="todo-list"></div>
+    <p>To Do List</p>
+    <input type="text" name="" id="">
+    <input type="date" name="" id="">
+    <button>Add</button>
+    <script>
+        const toDoList = [];
+        function addToDoList(){
+            const inputElement = document.querySelector('.js-name-todo');
+            const name = inputElement.value;
+            toDoList.push(name);
+            inputElement.value = '';
+        }
+        const toDoList2 = [];
+        rendertodoList();
+        function rendertodoList(){
+            const inputElement2 = document.querySelector('.js-name-todo2');
+            let name2 = inputElement2.value;
+            toDoList2.unshift(name2);
+            inputElement2.value = '';
+            let todoListHtml = '';
+            for(let i = 0; i < toDoList2.length ; i++){
+                const list = toDoList2[i];
+                const html = `<p>${list}<button>Delete</button></p>`
+                todoListHtml += html;
+            }
+            document.querySelector('.todo-list').innerHTML = todoListHtml;
+        }
+        
+            
+        
+    </script>
+</body>
+</html>
