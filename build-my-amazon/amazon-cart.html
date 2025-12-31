@@ -2,6 +2,23 @@
 <html lang="en">
 <head>
     <title>Cart Quantity</title>
+    <style>
+        body {
+            font-family: Arial;
+        }
+        .cost-input {
+            font-size: 15px;
+            padding: 10px;
+        }
+        .calculate-button {
+            background-color: green;
+            color: white;
+            border: none;
+            font-size: 15px;
+            padding: 12px 15px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <button onclick="console.log(`Cart Quantity: ${cartQuantity}`);">
@@ -27,9 +44,9 @@
     <p>Amazon Shipping Calculator</p>
     <p>Orders under $40 = +$10 shipping.</p>
     <p>Orders over $50 = FREE shipping.</p>
-    <input class="js-cost-of-input" placeholder="Cost of order"
+    <input class="js-cost-of-input cost-input" placeholder="Cost of order"
         onkeydown="handleCostKeydown(event)">
-    <button class="Calculate" onclick="calculateTotal();">Calculate</button>
+    <button class="Calculate calculate-button" onclick="calculateTotal();">Calculate</button>
     <p class="js-total-cost"></p>
     <script>
         let cartQuantity = 0;
