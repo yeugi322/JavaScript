@@ -10,7 +10,9 @@ body{
       .move-icon {
       height: 50px;
       }
-      .move-button {
+      .move-button-rock,
+      .move-button-paper,
+      .move-button-scissors {
         background-color: transparent;
         border: 1px solid white;
         width: 100px;
