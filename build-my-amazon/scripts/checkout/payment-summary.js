@@ -62,18 +62,40 @@ export function renderPaymentSummary() {
     document.querySelector('.js-payment-summary').innerHTML = paymentSummaryHTML;
 
     document.querySelector('.js-place-order').addEventListener('click', async () => {
-        const response = await fetch('https://supersimplebackend.dev/orders', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            cart: cart
-          })
-        });
-      const order = await response.json();
-      addOrder(order);
-
-      window.location.href = 'orders.html';
+  try {
+    const response = await fetch('https://supersimplebackend.dev/orders', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        cart: cart
+      })
     });
+
+    // Check if response is OK
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const order = await response.json();
+    
+    // DEBUG: Check what the API returns
+    console.log('Order from API:', order);
+    
+    // Validate the order has required fields
+    if (!order || !order.products || !Array.isArray(order.products)) {
+      console.error('Invalid order structure:', order);
+      alert('Error placing order. Please try again.');
+      return;
+    }
+
+    addOrder(order);
+    window.location.href = 'orders.html';
+    
+  } catch (error) {
+    console.error('Error placing order:', error);
+    alert('Failed to place order. Please check your connection and try again.');
+  }
+});
 }
